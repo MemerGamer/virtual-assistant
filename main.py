@@ -4,6 +4,7 @@ import pywhatkit
 import datetime
 import wikipedia
 import pyjokes
+import webbrowser
 
 #listening side
 listener = sr.Recognizer()
@@ -62,7 +63,7 @@ def run_alexa():
         talk(info)
         
     elif 'what is' in Kommand:
-        person = Kommand.replace('who is', '')
+        person = Kommand.replace('what is', '')
         info = wikipedia.summary(person, 1)
         print(info)
         talk(info)
@@ -72,7 +73,16 @@ def run_alexa():
         print(joke)
         talk(joke)
         
-    #open function
+    #open function - adding more sites
+    elif 'open' in Kommand:
+        site = Kommand.replace('open', '')
+        print('Opening ' + site)
+        if 'google' in site:
+            url = "https://www.google.com/"
+            webbrowser.open(url, new=0, autoraise=True)
+        elif 'youtube' in site:
+            url = "https://www.youtube.com/"
+            webbrowser.open(url, new=0, autoraise=True)
     #have a client name and functions to it 
     
     else:
