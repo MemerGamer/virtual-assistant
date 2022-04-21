@@ -20,6 +20,7 @@ def talk(text):
     engine.runAndWait()
 
 def take_command():
+    command = ''
     try:
         #using michrophone as source
         with sr.Microphone() as source:
@@ -36,6 +37,7 @@ def take_command():
                 print("Command: ",command)
     except:
         pass
+    
     return command
 
 def run_alexa():
@@ -69,8 +71,13 @@ def run_alexa():
         joke = pyjokes.get_joke()
         print(joke)
         talk(joke)
+        
+    #open function
+    #have a client name and functions to it 
+    
     else:
         print('Please say the command again.')
         talk('Please say the command again.')
+
 while True:
     run_alexa()
