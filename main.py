@@ -1,6 +1,9 @@
 import speech_recognition as sr 
 import pyttsx3
 import pywhatkit
+import datetime
+import wikipedia
+import pyjokes
 
 #listening side
 listener = sr.Recognizer()
@@ -36,13 +39,38 @@ def take_command():
     return command
 
 def run_alexa():
-    command = take_command()
+    #bc of bugs I changed command to Kommand
+    Kommand = take_command()
     
-    if 'play' in command:
-        song = command.replace('play', '')
+    if 'play' in Kommand:
+        song = Kommand.replace('play', '')
         talk('Playing' + song)
         print('Playing' + song)
         pywhatkit.playonyt(song)
         
+    elif 'time' in Kommand:
+        time = datetime.datetime.now().strftime('%H:%M')
+        print('Current time is ' + time)
+        talk('Current time is ' + time)
         
-run_alexa()
+    elif 'who is' in Kommand:
+        person = Kommand.replace('who is', '')
+        info = wikipedia.summary(person, 1)
+        print(info)
+        talk(info)
+        
+    elif 'what is' in Kommand:
+        person = Kommand.replace('who is', '')
+        info = wikipedia.summary(person, 1)
+        print(info)
+        talk(info)
+        
+    elif 'joke' in Kommand:
+        joke = pyjokes.get_joke()
+        print(joke)
+        talk(joke)
+    else:
+        print('Please say the command again.')
+        talk('Please say the command again.')
+while True:
+    run_alexa()
