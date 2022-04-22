@@ -1,12 +1,11 @@
 # virtual-assistant
 
 ## Installation
-### For windows users
-(run those in command prompt/cmd/terminal)
+`pip install -r requirements.txt` - Installs all the required packages
+### Manual installation for windows users
+### Dependecies you need
 
-## Dependecies you need
-
-| Package name | Usage |
+| Packages | Usage |
 |---|---|
 | `pip install speechRecognition`  | For the assistant to listen to our voice/speech |
 | `pip install pyttsx3` |  For the assistant to speak, text to speech |
@@ -18,10 +17,29 @@
 ### For GNU/Linux users
 Make sure to use `pip3`, because in linux `pip` refers for `python2` and `pip3` refers to `python3`.
 
-| Package name | Usage |
+| Packages | Usage |
 |---|---|
 | `pip3 install pyAudio` | for python audio |
 | `pip3 install portAudio` | for python audio |
+
+
+## Usage
+After installing the required packages you should start the `main.py` in your terminal (for example cmd, powershell or st, kitty, etc)
+
+After starting the application, in your terminal should appear a `listening...` message.
+When you see that message you could say the keyword `Alexa` and after that a command.
+
+### Currently available commands:
+| Commands | What it does |
+|---|---|
+| `play` < title > | Alexa plays < title > on YouTube |
+| tell me the `time` | Alexa tells you the current time |
+| `who is` < name > | Alexa tells you information about < name > |
+| `what is` < name > | Alexa tells you information about < name > |
+| tell me a `joke` | Alexa tells you a joke |
+| `open` < name > | Alexa opens < name > (Currently only youtube & google is available) |
+
+NOTE: As long as you have the keywords: `play` , `time`, `who is`, `what is`, `joke` & `open` in your command Alexa will run the corressponding functions.
 
 #### Issues
 If you encounter any problems feel free to open a new issue. Before that check other closed issues and check if your issue matches with any older issues.
