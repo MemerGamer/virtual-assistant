@@ -77,6 +77,7 @@ def run_alexa():
     elif 'open' in Kommand:
         site = Kommand.replace('open', '')
         print('Opening ' + site)
+        talk('Opening ' + site)
         if 'google' in site:
             url = "https://www.google.com/"
             webbrowser.open(url, new=0, autoraise=True)
