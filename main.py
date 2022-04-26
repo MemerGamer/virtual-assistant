@@ -6,6 +6,7 @@ import wikipedia
 import pyjokes
 import webbrowser
 
+
 #listening side
 listener = sr.Recognizer()
 
@@ -13,7 +14,7 @@ listener = sr.Recognizer()
 engine = pyttsx3.init()
 #setting up the voice 
 voices = engine.getProperty('voices')
-engine.setProperty('voice',voices[1].id)
+engine.setProperty('voice',voices[0].id)
 
 #talking function
 def talk(text):
@@ -33,15 +34,15 @@ def take_command():
             command = command.lower()
             
             #checking if alexa key is mentioned, if so to the command
-            if 'alexa' in command:
-                command = command.replace('alexa', '')
+            if 'alex' in command:
+                command = command.replace('alex', '')
                 print("Command: ",command)
     except:
         pass
     
     return command
 
-def run_alexa():
+def run():
     #bc of bugs I changed command to Kommand
     Kommand = take_command()
     
@@ -86,9 +87,14 @@ def run_alexa():
             webbrowser.open(url, new=0, autoraise=True)
     #have a client name and functions to it 
     
+    elif 'exit' in Kommand:
+        print('Exiting...')
+        talk('Exiting...')
+        quit()
+            
     else:
         print('Please say the command again.')
         talk('Please say the command again.')
 
 while True:
-    run_alexa()
+    run()
