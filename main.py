@@ -7,6 +7,7 @@ import pyjokes
 import webbrowser
 import random
 
+
 #listening side
 listener = sr.Recognizer()
 
@@ -42,9 +43,12 @@ def take_command():
     
     return command
 
+userName = 'master'
+
 def run():
     #bc of bugs I changed command to Kommand
     Kommand = take_command()
+    global userName
     
     if 'play' in Kommand:
         song = Kommand.replace('play', '')
@@ -90,8 +94,19 @@ def run():
     elif 'roll the dice' in Kommand:
         first_choice = random.randint(1,6)
         second_choice = random.randint(1,6)
-        print('First choice:',first_choice,"\nSecond choice:",second_choice)
-        talk('First choice:',first_choice,"\nSecond choice:",second_choice)
+        print('First choice:' + str(first_choice) + "\nSecond choice:"+ str(second_choice))
+        talk('First choice:' + str(first_choice) + "\nSecond choice:"+ str(second_choice))
+        
+    elif 'call me' in Kommand:
+        name = Kommand.replace('call me', '')
+        userName = name;
+        print('From now on I will call you ' + userName)
+        talk('From now on I will call you ' + userName)
+        
+    elif "what's my name" in Kommand:
+        print('Your name is ' + userName)
+        talk('Your name is ' + userName)
+        
     
     elif 'exit' in Kommand:
         print('Exiting...')
