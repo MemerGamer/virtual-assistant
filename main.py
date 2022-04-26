@@ -5,7 +5,7 @@ import datetime
 import wikipedia
 import pyjokes
 import webbrowser
-
+import random
 
 #listening side
 listener = sr.Recognizer()
@@ -86,6 +86,12 @@ def run():
             url = "https://www.youtube.com/"
             webbrowser.open(url, new=0, autoraise=True)
     #have a client name and functions to it 
+    
+    elif 'roll the dice' in Kommand:
+        first_choice = random.randint(1,6)
+        second_choice = random.randint(1,6)
+        print('First choice:',first_choice,"\nSecond choice:",second_choice)
+        talk('First choice:',first_choice,"\nSecond choice:",second_choice)
     
     elif 'exit' in Kommand:
         print('Exiting...')
