@@ -39,9 +39,11 @@ When you see that message you could say the keyword `Alex` and after that a comm
 | tell me a `joke` | Alex tells you a joke |
 | `open` < name > | Alex opens < name > (Currently only youtube & google is available) |
 | `roll the dice` | Alex rolls the dice |
+| `call me` < name > | Alex will asign you your < name > |
+| `what's my name` | Alex will tell you your name |
 | `exit` | Exit |
 
-NOTE: As long as you have the keywords: `play` , `time`, `who is`, `what is`, `joke`,`open`, `roll the dice` & `exit` in your command Alex will run the corressponding functions.
+NOTE: As long as you have the keywords: `play` , `time`, `who is`, `what is`, `joke`,`open`, `roll the dice`, `call me`, `what's my name` & `exit` in your command Alex will run the corressponding functions.
 
 #### Issues
 If you encounter any problems feel free to open a new issue. Before that check other closed issues and check if your issue matches with any older issues.
